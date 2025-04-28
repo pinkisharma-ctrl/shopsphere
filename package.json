@@ -7,10 +7,13 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:shell": "node dist/shell/server/server.mjs"
+    "serve:ssr:shell": "node dist/shell/server/server.mjs",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
+    "@abacritt/angularx-social-login": "^2.4.0",
+    "@angular-architects/module-federation": "^19.0.3",
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
     "@angular/core": "^19.2.0",
@@ -20,6 +23,7 @@
     "@angular/platform-server": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.8",
+    "bootstrap": "^5.3.5",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -38,6 +42,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ngx-build-plus": "^19.0.0",
     "typescript": "~5.7.2"
   }
 }

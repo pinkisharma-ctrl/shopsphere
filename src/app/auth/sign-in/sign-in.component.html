@@ -1,0 +1,45 @@
+<div class="background">
+    <div class="cover">
+      <div class="container">
+        <div class="left">
+          <h2>Welcome to ShopSphere</h2>
+        
+          <p>Your one-stop shop for everything awesome. Discover the latest trends, best prices, and easy shopping experience all in one place.</p>
+        </div>
+        <div class="divider"></div>
+        <div class="right">
+          <h2>Login</h2>
+  
+          <form [formGroup]="signInForm" (ngSubmit)="login()">
+            <div>
+              <input type="email" formControlName="email"  placeholder="Your Email"/>
+            </div>
+            <div>
+              <input type="password" formControlName="password" placeholder="Password" />
+            </div>
+            <div *ngIf="error" style="color: red;">{{ error }}</div>
+            <button type="submit" class="primary" [disabled]="signInForm.invalid">Login</button>
+          </form>
+          <hr />
+          <!-- <div id="google-button"></div> --><!--  <div id="googleBtn"></div> -->
+          <asl-google-signin-button
+          type="standard"
+          shape="pill"
+          theme="filled_blue"
+          text="signin_with"
+          size="large"
+          logo_alignment="left"
+          (click)="loginWithGoogle()">
+        
+        </asl-google-signin-button>
+       
+      
+
+<br>
+          <p>Don't have an account?</p>
+          <button class="secondary" (click)="goToSignUp()">Sign Up</button> <!---->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <button (click)="signInWithGoogle()">Sign in with Google</button> -->

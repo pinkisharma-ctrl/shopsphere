@@ -1,0 +1,143 @@
+
+<!--https://s.tmimgcdn.com/scr/800x500/203100/marketkit-multipurpose-ecommerce-html-website-template_203166-original.jpg -->
+<!-- https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQksI30NN0_mh1GTwMO8j3qtigMN4wxtkaCerQiqKyt6sQGaJ15LsoKttFHCJQGX2ssk9Q&usqp=CAU
+https://sellbery.com/wp-content/uploads/2022/02/Designing-Your-Ecommerce-Website-for-Success-Picture-12.png -->
+<app-header></app-header>
+
+
+<div class="background">
+  <img src="https://www.niraltek.com/images/ecommerce/ecommerce-banner.png"
+  style="position: absolute;left: 4%; height:400px;">
+<!-- Category Bar -->
+<div class="py-3 px-4 d-flex justify-content-center gap-4 text-uppercase category-cover">
+  <div class="category-item" (click)="filterByCategory('Jewelry')">Jewelry</div>
+  <div class="category-item"(click)="filterByCategory('men')">Men's Clothing</div>
+  <div class="category-item"(click)="filterByCategory('Electronics')">Electronics</div>
+  <div class="category-item"(click)="filterByCategory('Women')">Women's Clothing</div>
+</div>
+
+</div>
+
+<!-- https://img.freepik.com/free-photo/portrait-curly-girl-with-red-lipstick-taking-notes-tablet-pink-background-with-dressees_197531-17620.jpg -->
+<div class="allproduct">
+  <h2 class="section-heading">Products You Might Like</h2>
+  <div class="mb-4">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      (input)="onSearchChange()"
+      placeholder="Search products..."
+      class="form-control"
+      style="max-width: 500px;"
+    />
+  </div>
+
+    <div class="product-container" *ngIf="paginatedPosts?.length; else emptyProduct">
+      <div class="products" *ngFor="let product of paginatedPosts" [highlightProduct]="product.price">
+          <p class="title" >{{ product.title }}</p>
+          <img [src]="product.image" alt="{{product.title}}" (click)="getdetails(product)">
+          <span>{{ product.price }}</span>
+          <p class="description" >{{ product.description }}</p>
+          <button class="add-to-cart-btn" (click)="addToCart(product)">Add to Cart</button>
+      </div>
+      </div>
+      
+      <div class="pagination-controls mt-4 d-flex justify-content-center align-items-center">
+        <button (click)="prevPage()" [disabled]="currentPage === 1" class="btn btn-outline-secondary">
+          Previous
+        </button>
+      
+        <span class="mx-3">
+          Page {{ currentPage }} of {{ totalPages }}
+        </span>
+      
+        <button
+          (click)="nextPage()"
+          [disabled]="currentPage >= totalPages"
+          class="btn btn-outline-secondary"
+        >
+          Next
+        </button>
+      </div>
+   </div>
+   <ng-template #emptyProduct>
+    <div style="display: flex; justify-content: center; align-items: center; height: 200px;">
+      <img 
+        src="https://cdn.svgator.com/assets/landing-pages/static/css-loader/57579327-0-Loaders-3.svg" 
+        style="width: 60px;"
+        alt="Loading..."
+      />
+    </div>
+  </ng-template>
+  
+
+ <!-- <div class="offers-section">
+    <h3 class="section-heading">Special Offer</h3>
+    <div class="offer-grid">
+      <div class="left-image">
+        <div class="background-image"></div>
+        <div class="getOffer"><p>get upto 50%</p></div>
+      </div>
+      <div class="right-images">
+        <div class="top-image">
+            <div class="background-image"></div>
+        </div>
+        <div class="bottom-image">
+            <div class="background-image"></div>
+        </div>  
+      </div>
+    </div>
+  </div> -->
+
+
+  <div class="container pt-20 ourServices">
+   <img src="https://cdni.iconscout.com/illustration/premium/thumb/graphic-design-illustration-download-in-svg-png-gif-file-formats--sketch-logo-illustrator-digital-pad-drawing-vector-designer-pack-people-illustrations-4453156.png" class="bg">
+    <div class="ele mt8">
+        <p>Free Delivery </p>
+        <span>for all order over 99$</span>
+    </div>
+    <div class="ele mt8">
+        <p>90 Days Return</p>
+        <span>if goods have problem</span>
+    </div>
+    <div class="ele mt8">
+        <p>Secure Payment</p>
+        <span>100% Secure payment</span>
+    </div>
+    <div class="ele mt8">
+        <p>Gift Service</p>
+        <span>support Gift Service </span>
+    </div>
+    <div class="ele mt8">
+        <p>24/7 Support</p>
+        <span>dedicated support </span>
+    </div>
+</div>
+<footer class="bg-dark text-light py-4 mt-5">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-4 mb-3 mb-md-0">
+        <h5>MyApp</h5>
+        <p>&copy; 2025 MyApp. All rights reserved.</p>
+      </div>
+
+      <div class="col-md-4 mb-3 mb-md-0">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="/home" class="text-light text-decoration-none">Home</a></li>
+          <li><a href="/about" class="text-light text-decoration-none">About</a></li>
+          <li><a href="/contact" class="text-light text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <h6>Follow Us</h6>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="#" class="text-light"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

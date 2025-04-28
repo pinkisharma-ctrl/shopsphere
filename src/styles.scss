@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+// @import './styles/mixins';
+body{
+    margin:0    
+}
+html, body {
+    font-family: 'Muli';
+}
+
+.pt-20{
+    padding-top:20px;
+}
+.primary{ background-color: #ffeab6}
+.secondary {background-color: #c3cffa}
+.secondary-outline{ color:#c3cffa;border:1px solid #c3cffa; background-color: transparent;}
+.secondary-outline:hover{background-color: #c3cffa; color:#ffffff;}
+button { padding: 8px; border-radius: 5px;  cursor: pointer;  margin-top: 10px;border:none}

@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow px-4">
+  <div class="container-fluid">
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold" (click)="goToHomePage()">
+      <img src="https://miro.medium.com/v2/resize:fit:1400/1*xnlpesbie8Ag_W5s5HzWsA.png" style="height: 40px;">
+    </a>
+
+    <!-- Right Side Icons -->
+    <div class="d-flex align-items-center ms-auto gap-3">
+      <!-- Cart Icon -->
+      <button class="btn btn-outline-secondary cart" title="Cart" (click)="goToCart()">
+        <p class="cartItemCount">{{cartItemCount > 10 ? '10+': cartItemCount}}</p>
+        <i class="fas fa-shopping-cart"></i>
+      </button>
+
+      <!-- Profile Icon -->
+      <button class="btn btn-outline-secondary" title="Profile" (click)="goToProfile()">
+        <i class="fas fa-user"></i>
+      </button>
+
+      <!-- Logout Button -->
+      <button class="btn btn-danger d-flex align-items-center gap-1"  style="background-color: #f75f87;" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </button>
+    </div>
+  </div>
+</nav> 
+
+

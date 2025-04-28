@@ -1,0 +1,32 @@
+
+<div class="container my-5">
+    <h3 class="text-center my-4 fw-bold display-6 border-bottom pb-2">
+        <!-- 🛒 --> Your Shopping Cart</h3>
+    <div *ngIf="cartItems.length; else emptyCart" class="cover">
+      <div *ngFor="let item of cartItems" class="mb-3 p-3 border rounded boxOfCard">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h5>{{ item.title }}</h5>
+            <p>{{ item.price | currencyFormat:'₹' }}</p>
+          </div>
+          <button class="btn btn-danger" (click)="removeItem(item.id)">Remove</button>
+        </div>
+      </div>
+  
+      <button class="btn btn-outline-danger mt-3" (click)="clearCart()">Clear Cart</button>
+    <img class="bg" src="https://media.istockphoto.com/id/1174426173/vector/vector-flat-style-illustration-of-a-young-beautiful-woman-with-laptop-surrounded-by-tropical.jpg?s=612x612&w=0&k=20&c=V8UgV7xCHbjFcvfblFMF5nacOfznEcyxvNWlquB-4ds=">
+
+    </div>
+  
+    <ng-template #emptyCart>
+        <div style="text-align: center; padding-top: 2%;">
+          <img src="https://cdn-icons-png.flaticon.com/256/2762/2762885.png" alt="Empty Cart" class="mb-3" />
+          <p class="lead">Your cart is empty</p>
+          <a (click)="goToHome()" class="btn btn-primary mt-3">
+            Go to Home
+          </a>
+        </div>
+      </ng-template>
+      
+  </div>
+  

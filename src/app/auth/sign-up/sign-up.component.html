@@ -1,0 +1,41 @@
+<div class="background">
+    <div class="cover">
+      <div class="container">
+        <div class="left">
+          <h2>Join ShopSphere</h2>
+          <p>Create your account and start exploring the latest trends, unbeatable prices, and a seamless shopping experience!</p>
+        </div>
+        <div class="divider"></div>
+        <div class="right">
+          <h2>Create Account</h2>
+  
+          <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+            <div>
+              <input type="text" formControlName="username" placeholder="User Name" />
+            </div>
+  
+            <div>
+              <input type="email" formControlName="email" placeholder="Email" />
+            </div>
+  
+            <div>
+              <input type="password" formControlName="password" placeholder="Password" />
+            </div>
+  
+            <div>
+              <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" />
+            </div>
+  
+            <div *ngIf="error" style="color: red;">{{ error }}</div>
+  
+            <button type="submit" class="primary" [disabled]="signUpForm.invalid">Create Account</button>
+          </form>
+  
+          <hr />
+          <p>Already have an account?</p>
+          <button  class="secondary-outline" (click)="goToSignIn()">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
