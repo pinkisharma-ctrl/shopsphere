@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../core/api.service';
 import { HeaderComponent } from "../../header/header.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -16,15 +17,13 @@ export class ProfileComponent implements OnInit {
   originalData: any;
   isFormChanged = false;
 
-  constructor(private fb: FormBuilder, private _apiService: ApiService) {}
+  constructor(private fb: FormBuilder, private _apiService: ApiService, private router: Router) {}
 
   ngOnInit(): void {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       const user = JSON.parse(storedUser);
       this.originalData = user;
-      console.log(user)
-
       this.profileForm = this.fb.group({
         name: [user.name],
         email: [user.email],
@@ -32,7 +31,6 @@ export class ProfileComponent implements OnInit {
         role: [user.role],
         avatar: [user.avatar],
       });
-
       this.profileForm.valueChanges.subscribe(val => {
         this.isFormChanged = JSON.stringify(val) !== JSON.stringify({
           name: this.originalData.name,
@@ -56,7 +54,6 @@ export class ProfileComponent implements OnInit {
         email: updatedUser.email,
         password: updatedUser.password
       };
-  
       this._apiService.updateUserById(userFromLocal.id, payload).subscribe({
         next: (res:any) => {
           console.log('User updated:', res);
@@ -67,7 +64,6 @@ export class ProfileComponent implements OnInit {
             email: updatedUser.email,
             password: updatedUser.password,
           };
-  
           localStorage.setItem('user', JSON.stringify(newLocalUser));
           this.originalData = { ...this.profileForm.value };
           this.isFormChanged = false;
@@ -79,9 +75,8 @@ export class ProfileComponent implements OnInit {
     }
   }
   
-
-
   cancelChanges() {
+    this.router.navigate(['/home']);
     if (this.originalData) {
       this.profileForm.patchValue(this.originalData);
       this.isFormChanged = false;

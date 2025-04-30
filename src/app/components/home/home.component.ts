@@ -7,11 +7,12 @@ import { CategoryMapPipe } from '../../shared/category-map.pipe';
 import { CartService } from '../../shared/cart.service';
 import { HighlightProductDirective } from '../../shared/highlightProduct.directive';
 import { Router } from '@angular/router';
+import { CurrencyFormatPipe } from "../../shared/currency-format.pipe";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, HeaderComponent,HighlightProductDirective],  // Add FormsModule
+  imports: [CommonModule, FormsModule, HeaderComponent, HighlightProductDirective, CurrencyFormatPipe],  // Add FormsModule
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -23,21 +24,32 @@ export class HomeComponent implements OnInit {
   pageSize = 8;
   totalPages = 0;
   searchQuery = '';
-
-  constructor(public _apiService: ApiService, private cartService: CartService,
-    private router: Router) {}
   categoryPipe = new CategoryMapPipe(); // use pipe
+
+  constructor(
+    public _apiService: ApiService, 
+    private cartService: CartService,
+    private router: Router) {}
+
   ngOnInit(): void {
-    this._apiService.getProduct().subscribe({
-      next: (response: any[]) => {
-        this.allProducts = response;
-        this._apiService.setProducts(response); // Save globally
-        this.applySearchAndPaginate();
-      },
-      error: (err) => {
-        console.error('Failed to fetch products', err);
-      }
-    });
+    const allProductsStr  = localStorage.getItem('allProducts');
+    if (allProductsStr) {
+      this.allProducts = JSON.parse(allProductsStr);
+      this._apiService.setProducts(this.allProducts);
+      this.applySearchAndPaginate();
+    } else {
+      this._apiService.getProduct().subscribe({
+        next: (response: any[]) => {
+          this.allProducts = response;
+            localStorage.setItem('allProducts',JSON.stringify(this.allProducts) )
+          this._apiService.setProducts(response); // Save globally
+          this.applySearchAndPaginate();
+        },
+        error: (err) => {
+          console.error('Failed to fetch products', err);
+        }
+      });
+    }
   }
 
   onSearchChange(): void {
@@ -52,7 +64,6 @@ export class HomeComponent implements OnInit {
           product.title.toLowerCase().includes(query)
         )
       : this.allProducts;
-
     this.totalPages = Math.ceil(this.filteredProducts.length / this.pageSize);
     this.updatePaginatedPosts();
   }
@@ -76,6 +87,7 @@ export class HomeComponent implements OnInit {
       this.updatePaginatedPosts();
     }
   }
+
   filterByCategory(categoryKey: string): void {
     const category = this.categoryPipe.transform(categoryKey);
     this.searchQuery = ''; // clear search if category is applied

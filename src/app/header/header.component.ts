@@ -11,13 +11,13 @@ import { ApiService } from '../core/api.service';
 })
 export class HeaderComponent {
   constructor(public router : Router,private cartService: CartService,private _apiService :ApiService ){}
-   cartItemCount:number=0;
+  cartItemCount:number=0;
 
-   ngOnInit() {
-   this.cartService.cartItems$.subscribe((items: any[]) => {
-      this.cartItemCount = items.length;
-    });
-  }
+    ngOnInit() {
+      this.cartService.cartItems$.subscribe((items: any[]) => {
+          this.cartItemCount = items.length;
+      });
+    }
 
   logout() {
     this.router.navigate(['/auth/sign-in']);
@@ -39,6 +39,5 @@ export class HeaderComponent {
       //   this.router.navigate(['/profile']);
       // });
   }
-  
- 
+
 }

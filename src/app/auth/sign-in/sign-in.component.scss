@@ -1,84 +1,71 @@
-// @use '../../../styles/mixins' ;
-
 .background {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    background-image: url('https://a.storyblok.com/f/99519/1440x765/a76ad98496/header-chapter.svg');
-    background-position: center;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .cover {
-    background: #ffffffcc;
-    border-radius: 10px;
-    width: 70%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .left,
-  .right {
-    flex: 1;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .left {
-    text-align: left;
-    font-size: 1.2rem;
-  }
-  
-  .divider {
-    width: 1px;
-    background-color: #ccc;
-    height: 80%;
-    align-self: center;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  input {
-    padding: 8px;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    background: no-repeat;
-    width: 100%;
-  }
-  
-  button {
-    padding: 10px;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:disabled {
-    background-color: #cccccc;
-  }
-  
-  .L6cTce{
-    display: block;
-  }
-  .google-button-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-  }
- 
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  background-image: url("https://a.storyblok.com/f/99519/1440x765/a76ad98496/header-chapter.svg");
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+}
+.cover {
+  background: #ffffffcc;
+  border-radius: 10px;
+  width: 70%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.left,
+.right {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.left {
+  text-align: left;
+  font-size: 1.2rem;
+}
+.divider {
+  width: 1px;
+  background-color: #ccc;
+  height: 80%;
+  align-self: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+input {
+  padding: 8px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: no-repeat;
+  width: 100%;
+}
+button {
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:disabled {
+  background-color: #cccccc;
+}
+.L6cTce {
+  display: block;
+}
+.google-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}

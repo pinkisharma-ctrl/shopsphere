@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { ApiService } from '../../core/api.service';
 import { CartService } from '../../shared/cart.service';
 import { HeaderComponent } from "../../header/header.component";
+import { CurrencyFormatPipe } from "../../shared/currency-format.pipe";
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule, HeaderComponent, CurrencyFormatPipe],
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss']
 })

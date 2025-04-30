@@ -1,82 +1,79 @@
 .profile-container {
-    max-width: 100%;
-    margin: 40px auto;
-    padding: 24px;
-    border-radius: 12px;
-    background-color: #fefefe;
-    position: relative;
-  
-    h2 {
-      text-align: center;
-      margin-bottom: 24px;
-      color: #333;
-    }
-  
-    .profile-form {
+  max-width: 100%;
+  margin: 40px auto;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #fefefe;
+  position: relative;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #333;
+  }
+
+  .profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 50%;
+    margin: auto;
+    .form-group {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      width: 50%;
- margin:auto;
-      .form-group {
-        display: flex;
-        flex-direction: column;
-  
-        label {
-          font-weight: 600;
-          margin-bottom: 4px;
-        }
-  
-        input {
-          padding: 8px;
-          border-radius: 6px;
-          border: 1px solid #ccc;
-          font-size: 16px;
-        }
-  
-        .avatar-preview {
-         margin:auto;
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
-          object-fit: cover;
-        }
+
+      label {
+        font-weight: 600;
+        margin-bottom: 4px;
       }
-  
-      .button-group {
-        display: flex;
-        justify-content: space-between;
-  
-        button {
-          padding: 10px 20px;
-          border: none;
-          border-radius: 6px;
-          font-size: 16px;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-  
-          &:first-child {
-            background-color: #28a745;
-            color: white;
-            &:disabled {
-              background-color: #94d3a2;
-              cursor: not-allowed;
-            }
+
+      input {
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+
+      .avatar-preview {
+        margin: auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:first-child {
+          background-color: #28a745;
+          color: white;
+          &:disabled {
+            background-color: #94d3a2;
+            cursor: not-allowed;
           }
-  
-          &:last-child {
-            background-color: #dc3545;
-            color: white;
-          }
+        }
+
+        &:last-child {
+          background-color: #dc3545;
+          color: white;
         }
       }
     }
   }
-  
+}
 
-  .bg{
-    opacity: 0.2;
-    position: absolute;
-    bottom: -20%;
-    height: 300px;
-  }
+.bg {
+  opacity: 0.2;
+  position: absolute;
+  bottom: -20%;
+  height: 300px;
+}

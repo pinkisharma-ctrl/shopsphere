@@ -1,27 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow px-4">
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
   <div class="container-fluid">
     <!-- Brand -->
     <a class="navbar-brand fw-bold" (click)="goToHomePage()">
       <img src="https://miro.medium.com/v2/resize:fit:1400/1*xnlpesbie8Ag_W5s5HzWsA.png" style="height: 40px;">
     </a>
-
     <!-- Right Side Icons -->
     <div class="d-flex align-items-center ms-auto gap-3">
       <!-- Cart Icon -->
-      <button class="btn btn-outline-secondary cart" title="Cart" (click)="goToCart()">
+      <button class="btn cart" title="Cart" (click)="goToCart()">
         <p class="cartItemCount">{{cartItemCount > 10 ? '10+': cartItemCount}}</p>
-        <i class="fas fa-shopping-cart"></i>
+        <img src="https://static-00.iconduck.com/assets.00/cart-icon-2048x1530-s1lb753r.png" style="width: 28px;">
       </button>
-
       <!-- Profile Icon -->
-      <button class="btn btn-outline-secondary" title="Profile" (click)="goToProfile()">
-        <i class="fas fa-user"></i>
+      <button class="btn iconBtn" title="Profile" (click)="goToProfile()">
+        <img src="https://cdn-icons-png.flaticon.com/256/4021/4021443.png" style="width: 28px; opacity: 0.8;">
       </button>
-
       <!-- Logout Button -->
-      <button class="btn btn-danger d-flex align-items-center gap-1"  style="background-color: #f75f87;" (click)="logout()">
-        <i class="fas fa-sign-out-alt"></i>
-        <span>Logout</span>
+      <button class="btn "  (click)="logout()" title="logout">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTd53rLer_w8vuBSi8pfl_GV9vRBuvRg7-QJe6lNAlZc9qFmyLonVDBT65CcLqluu886Q&usqp=CAU" style="width:26px; opacity: 0.7;">
       </button>
     </div>
   </div>

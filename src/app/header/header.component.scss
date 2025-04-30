@@ -1,15 +1,25 @@
 .cart{
     position: relative;
+    i{color: #6e5fa9; }
     .cartItemCount{
       position: absolute;
-       width: 20px;
-       height: 20px;
-       background-color: red;
-       color:#fff;
-       border-radius: 100%;
-       top: -10px;
-       right: -10px;
-       margin: 0;
-       font-size: 12px;   
+      width: 20px;
+      height: 20px;
+      background-color: #868be1;
+      color: #fff;
+      border-radius: 100%;
+      top: -6px;
+      right: -6px;
+      margin: 0;
+      font-size: 12px;
+      border: 1px solid black; 
     }
+}
+
+.iconBtn{i{ color: #6e5fa9;}}
+.btn:active{
+  border-color: transparent;
+}
+.navbar-light{
+  background-color: rgb(249 251 253) !important;
 }
