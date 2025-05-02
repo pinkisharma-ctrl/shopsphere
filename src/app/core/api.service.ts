@@ -31,10 +31,9 @@ export class ApiService{
   _profile(){
     return this.http.get(`http://localhost:3000/auth/profile`);
    }
-  getProfile() {
+  getProfile(): Observable<User> {
     return this.http.get<User>(`${this.EscuelajsUrl}/profile`);
   }
-
   getProduct(): Observable<any> {
     return this.http.get(`${this.baseUrl}/products`);
   }

@@ -16,7 +16,6 @@ import { CurrencyFormatPipe } from "../../shared/currency-format.pipe";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-
 export class HomeComponent implements OnInit {
   allProducts: any[] = [];
   filteredProducts: any[] = [];
