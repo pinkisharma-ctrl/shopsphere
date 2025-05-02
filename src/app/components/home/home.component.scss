@@ -210,3 +210,38 @@
 .productSearchInput:focus {
   box-shadow: none;
 }
+
+.stars {
+  display: flex;
+  gap: 4px;
+  float: right;
+  margin-top: 20px;
+}
+
+.star {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  background: lightgray;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+.star-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: gold;
+  clip-path: inherit;
+}

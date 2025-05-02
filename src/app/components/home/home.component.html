@@ -1,90 +1,84 @@
-
 <app-header></app-header>
 <div class="background">
   <img src="https://www.niraltek.com/images/ecommerce/ecommerce-banner.png"
-  style="position: absolute;left: 4%; height:400px;">
-<!-- Category Bar -->
-<div class="py-3 px-4 d-flex justify-content-center gap-4 text-uppercase category-cover">
-  <div class="category-item" (click)="filterByCategory('Jewelry')">Jewelry</div>
-  <div class="category-item"(click)="filterByCategory('men')">Men's Clothing</div>
-  <div class="category-item"(click)="filterByCategory('Electronics')">Electronics</div>
-  <div class="category-item"(click)="filterByCategory('Women')">Women's Clothing</div>
+    style="position: absolute;left: 4%; height:400px;">
+  <!-- Category Bar -->
+  <div class="py-3 px-4 d-flex justify-content-center gap-4 text-uppercase category-cover">
+    <div class="category-item" (click)="filterByCategory('Jewelry')">Jewelry</div>
+    <div class="category-item" (click)="filterByCategory('men')">Men's Clothing</div>
+    <div class="category-item" (click)="filterByCategory('Electronics')">Electronics</div>
+    <div class="category-item" (click)="filterByCategory('Women')">Women's Clothing</div>
+  </div>
 </div>
-</div>
-<!-- https://img.freepik.com/free-photo/portrait-curly-girl-with-red-lipstick-taking-notes-tablet-pink-background-with-dressees_197531-17620.jpg -->
 <div class="allproduct">
   <h2 class="section-heading">Products You Might Like</h2>
   <div class="mb-4">
-    <input 
-      type="text"
-      [(ngModel)]="searchQuery"
-      (input)="onSearchChange()"
-      placeholder="Search products ..."
-      class="form-control productSearchInput"
-      style="max-width: 500px;
+    <input type="text" [(ngModel)]="searchQuery" (input)="onSearchChange()" placeholder="Search products ..."
+      class="form-control productSearchInput" style="max-width: 500px;
           border-bottom: 1px solid #cfd9fb;
     border-radius: 200px;
-    padding: 10px 20px"
-    />
+    padding: 10px 20px" />
   </div>
-    <div class="product-container" *ngIf="paginatedPosts?.length; else emptyProduct">
-      <div class="products" *ngFor="let product of paginatedPosts" [highlightProduct]="product.rating.count">
-          <p class="title" >{{ product.title }}</p>
-         <div class="text-center">
-          <img [src]="product.image" alt="{{product.title}}" (click)="getdetails(product)">
-         </div>
-          <span>{{ product.price | currencyFormat:'₹'}}</span>
-          <p class="description" >{{ product.description }}</p>
-          <button class="add-to-cart-btn" (click)="addToCart(product)">Add to Cart</button>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXIiMbiyr9k7zivU15mD47ahAqCPj-mh9BFg&s"
-          style="height: 20px;
-          float: right;
-          margin-top: 20px;">
+  <div class="product-container" *ngIf="paginatedPosts?.length; else emptyProduct">
+    <div class="products" *ngFor="let product of paginatedPosts" [highlightProduct]="product.rating.count">
+      <p class="title">{{ product.title }}</p>
+      <div class="text-center">
+        <img [src]="product.image" alt="{{product.title}}" (click)="getdetails(product)">
       </div>
+      <span>{{ product.price | currencyFormat}}</span>
+      <p class="description">{{ product.description }}</p>
+      <button class="add-to-cart-btn" (click)="addToCart(product)">Add to Cart</button>
+      <div class="stars">
+        <ng-container *ngFor="let star of stars; let i = index">
+          <div class="star">
+            <div class="star-fill" [style.width.%]="getStarFill(i, product.rating.rate)"></div>
+          </div>
+        </ng-container>
       </div>
-      <div class="pagination-controls mt-4 d-flex justify-content-center align-items-center">
-        <button (click)="prevPage()" [disabled]="currentPage === 1" class="btn btn-outline-secondary">
-          Previous
-        </button>
-        <span class="mx-3">
-          Page {{ currentPage }} of {{ totalPages }}
-        </span>
-        <button
-          (click)="nextPage()"
-          [disabled]="currentPage >= totalPages"
-          class="btn btn-outline-secondary"
-         >
-          Next
-        </button>
-      </div>
-   </div>
-   <ng-template #emptyProduct>
-    <div style="display: flex; justify-content: center; align-items: center; height: 200px;">
-      <img  src="https://cdn.svgator.com/assets/landing-pages/static/css-loader/57579327-0-Loaders-3.svg"  style="width: 60px;" alt="Loading..." />
     </div>
-  </ng-template>
-  <div class="container pt-20 ourServices">
-   <img src="https://cdni.iconscout.com/illustration/premium/thumb/graphic-design-illustration-download-in-svg-png-gif-file-formats--sketch-logo-illustrator-digital-pad-drawing-vector-designer-pack-people-illustrations-4453156.png" class="bg">
-    <div class="ele mt8">
-        <p>Free Delivery </p>
-        <span>for all order over 99$</span>
-    </div>
-    <div class="ele mt8">
-        <p>90 Days Return</p>
-        <span>if goods have problem</span>
-    </div>
-    <div class="ele mt8">
-        <p>Secure Payment</p>
-        <span>100% Secure payment</span>
-    </div>
-    <div class="ele mt8">
-        <p>Gift Service</p>
-        <span>support Gift Service </span>
-    </div>
-    <div class="ele mt8">
-        <p>24/7 Support</p>
-        <span>dedicated support </span>
-    </div>
+  </div>
+  <div class="pagination-controls mt-4 d-flex justify-content-center align-items-center">
+    <button (click)="prevPage()" [disabled]="currentPage === 1" class="btn btn-outline-secondary">
+      Previous
+    </button>
+    <span class="mx-3">
+      Page {{ currentPage }} of {{ totalPages }}
+    </span>
+    <button (click)="nextPage()" [disabled]="currentPage >= totalPages" class="btn btn-outline-secondary">
+      Next
+    </button>
+  </div>
+</div>
+<ng-template #emptyProduct>
+  <div style="display: flex; justify-content: center; align-items: center; height: 200px;">
+    <img src="https://cdn.svgator.com/assets/landing-pages/static/css-loader/57579327-0-Loaders-3.svg"
+      style="width: 60px;" alt="Loading..." />
+  </div>
+</ng-template>
+<div class="container pt-20 ourServices">
+  <img
+    src="https://cdni.iconscout.com/illustration/premium/thumb/graphic-design-illustration-download-in-svg-png-gif-file-formats--sketch-logo-illustrator-digital-pad-drawing-vector-designer-pack-people-illustrations-4453156.png"
+    class="bg">
+  <div class="ele mt8">
+    <p>Free Delivery </p>
+    <span>for all order over 99$</span>
+  </div>
+  <div class="ele mt8">
+    <p>90 Days Return</p>
+    <span>if goods have problem</span>
+  </div>
+  <div class="ele mt8">
+    <p>Secure Payment</p>
+    <span>100% Secure payment</span>
+  </div>
+  <div class="ele mt8">
+    <p>Gift Service</p>
+    <span>support Gift Service </span>
+  </div>
+  <div class="ele mt8">
+    <p>24/7 Support</p>
+    <span>dedicated support </span>
+  </div>
 </div>
 <footer class="bg-dark text-light py-4 mt-5">
   <div class="container text-center">

@@ -16,6 +16,7 @@ import { CurrencyFormatPipe } from "../../shared/currency-format.pipe";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
   allProducts: any[] = [];
   filteredProducts: any[] = [];
@@ -25,11 +26,10 @@ export class HomeComponent implements OnInit {
   totalPages = 0;
   searchQuery = '';
   categoryPipe = new CategoryMapPipe(); // use pipe
+  rating = 4.1; // Use your rating value here
+  stars = Array(5).fill(0);
 
-  constructor(
-    public _apiService: ApiService, 
-    private cartService: CartService,
-    private router: Router) {}
+  constructor( public _apiService: ApiService, private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
     const allProductsStr  = localStorage.getItem('allProducts');
@@ -52,6 +52,16 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  getStarFill(index: number, rate: number): number {
+    const fullStars = Math.floor(rate);
+    const decimal = rate - fullStars;
+    if (index < fullStars) return 100;
+    if (index === fullStars) {
+      return decimal >= 0.6 ? 100 : 50;
+    }
+    return 0;
+  }
+  
   onSearchChange(): void {
     this.currentPage = 1;  // Reset to first page when searching
     this.applySearchAndPaginate();
@@ -107,4 +117,4 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('selectedProduct', JSON.stringify(product))
     this.router.navigate(['/product-detail', product.id])
   }
-}
+};
