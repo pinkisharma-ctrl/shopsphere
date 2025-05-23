@@ -1,0 +1,37 @@
+<br>
+<br>
+
+<p style="
+    margin-left: 10%;
+    color: #6057575c;">{{ questionData?.category }} > {{ questionData?.subcategory }}</p>
+
+
+<div class="card">
+  <div class="question-text" style="height: auto;"> {{ questionData?.question }} </div>
+  <div (click)="addToFav(questionData)" class="fav">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16" [ngClass]="{ 'favourite': questionData.isFavourite }">
+      <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+    </svg>
+  </div>
+  <div class="options">
+    <button *ngFor="let option of questionData?.options; let i = index"
+      (click)="selectOption(i)"
+      [ngClass]="getOptionClass(i)">
+      {{ option }}
+    </button>
+  </div>
+
+</div>
+
+<!-- Pagination Controls -->
+<div class="pagination-controls" style="margin-top: 20px; text-align: center;">
+  <button mat-button (click)="previous()" [disabled]="currentIndex === 0" style="margin-right: 10px;">
+    ⬅ Previous
+  </button>
+
+  <span> {{ currentIndex + 1 }} of {{ filteredQuestions.length }} </span>
+
+  <button mat-button (click)="next()" [disabled]="currentIndex === filteredQuestions.length - 1" style="margin-left: 10px;">
+    Next ➡
+  </button>
+</div>

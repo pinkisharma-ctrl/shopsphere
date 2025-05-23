@@ -1,0 +1,26 @@
+<div *ngFor="let questionData of favouriteQuestions" class="card">
+  <!-- Question full width -->
+  <p class="question-text">{{ questionData?.question }}</p>
+
+  <!-- Info row: Category left, Difficulty right -->
+  <div class="info-row">
+    <p class="category">
+      {{ questionData?.category }} > {{ questionData?.subcategory }}
+    </p>
+    <div class="difficulty-section">
+      <span
+        class="difficulty-indicator"
+        [ngClass]="getDifficultyColorClass(questionData?.difficulty)"
+        title="Difficulty"
+      ></span>
+      <p style="margin-top: 19px;">{{ questionData?.difficulty }}</p>
+    </div>
+  </div>
+
+  <!-- Remove favourite icon -->
+  <div class="favorite-icon" (click)="removeFromFavourites(questionData)">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16" [ngClass]="{ 'favourite': questionData.isFavourite }">
+      <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+    </svg>
+  </div>
+</div>

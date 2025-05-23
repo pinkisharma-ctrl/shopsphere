@@ -1,0 +1,39 @@
+::ng-deep .chip-easy {
+  background-color: #e0f7fa !important;   // Light Cyan
+  color: #006064 !important;              // Dark Cyan
+  font-weight: 500;
+  border:none
+}
+
+::ng-deep .chip-medium {
+  background-color: #fff9c4 !important ;   // Light Yellow
+  color: #f57f17 !important;              // Dark Mustard
+  font-weight: 500;
+}
+
+::ng-deep .chip-hard {
+  background-color: #ffebee !important;   // Light Red
+  color: #c62828 !important;              // Dark Red
+  font-weight: 500;
+}
+
+::ng-deep .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) 
+.mdc-evolution-chip__action--primary::before {
+  display: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+.mat-mdc-table{
+  background-color: transparent;
+}
+.mat-mdc-cell {
+    border-bottom-color: #74777f59;
+}
+
+.warn{
+   color: #c62828 !important;
+}
+.warn:hover{
+      background-color: #ffebee !important;
+    color: #c62828 !important;
+}

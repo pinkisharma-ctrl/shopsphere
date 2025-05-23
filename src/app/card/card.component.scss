@@ -1,0 +1,89 @@
+.card {
+  border: 1px solid #dddddd00;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.question-text {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+/* Difficulty row */
+.difficulty-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: #333;
+  font-size: 14px;
+}
+
+.difficulty-indicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+/* Difficulty colors */
+.easy {
+  background-color: #4caf5080;
+}
+.medium {
+  background-color: #ff980080;
+}
+.hard {
+  background-color: #f4433680;
+}
+
+/* Category & Subcategory row */
+.category-row {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: #777;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+/* Options buttons */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.options button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease;
+  text-align: left;
+}
+
+.options button.correct {
+  background-color: #4caf50;
+  color: white;
+}
+
+.options button.wrong {
+  background-color: #f44336;
+  color: white;
+}
+
+.fav{
+      text-align: right;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.favourite{fill: #e7d110;}

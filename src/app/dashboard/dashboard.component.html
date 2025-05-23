@@ -1,0 +1,76 @@
+<div style="margin-top: 4%; width: 96%; margin-left: auto; margin-right: auto;">
+  <!-- Filters -->
+  <div style="display: flex; gap: 20px; margin-bottom: 16px;">
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="selectedCategory" (selectionChange)="applyFilter()">
+        <mat-option value="">All</mat-option>
+        <mat-option *ngFor="let cat of uniqueCategories" [value]="cat">{{ cat }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Difficulty</mat-label>
+      <mat-select [(ngModel)]="selectedDifficulty" (selectionChange)="applyFilter()">
+        <mat-option value="">All</mat-option>
+        <mat-option *ngFor="let diff of uniqueDifficulties" [value]="diff">{{ diff }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Subcategory</mat-label>
+      <mat-select [(ngModel)]="selectedSubcategory" (selectionChange)="applyFilter()">
+        <mat-option value="">All</mat-option>
+        <mat-option *ngFor="let sub of uniqueSubcategories" [value]="sub">{{ sub }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- Table -->
+  <table mat-table [dataSource]="filteredDataSource" class="mat-elevation-z8">
+    <!-- Columns (same as before) -->
+   <ng-container matColumnDef="question">
+      <th mat-header-cell *matHeaderCellDef> Question </th>
+    <td mat-cell *matCellDef="let element">
+  {{ element.question.length > 28 ? (element.question | slice:0:28) + '...' : element.question }}
+    </td>
+   </ng-container>
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> Category </th>
+      <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="subcategory">
+      <th mat-header-cell *matHeaderCellDef> SubCategory </th>
+      <td mat-cell *matCellDef="let element"> {{element.subcategory}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="difficulty">
+      <th mat-header-cell *matHeaderCellDef> Difficulty </th>
+      <td mat-cell *matCellDef="let element">
+        <div [ngClass]="getDifficultyColor(element.difficulty)" style="width: 82px;
+    padding: 4px 0px;
+    text-align: center;
+    border-radius: 16px;
+">
+          {{element.difficulty}}
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button color="primary" (click)="onView(element)">View</button>
+        <button mat-button  color="danger" (click)="onDelete(element)">Delete</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+<br>
+  <!-- Pagination -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+

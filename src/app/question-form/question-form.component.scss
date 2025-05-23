@@ -1,0 +1,119 @@
+.form {
+  width: 90%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+
+  .form-content {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .form-left,
+  .form-right {
+    flex: 1;
+    min-width: 300px;
+    padding: 1rem;
+  }
+
+
+  .form-right {
+    border-left: 1px solid #ddd;
+  }
+
+  .option-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    input[type="text"] {
+      width: 94%;
+      padding: 0.5rem;
+      margin-right: 8px;
+      border:none;
+      border-bottom: 1px solid #ccc;
+      border-radius: 0px;
+      background-color: transparent;
+    }
+
+    .checkbox-label {
+      width: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border:none;
+      border-bottom: 1px solid #ccc;
+      border-radius: 0px;
+      background-color: transparent;
+    }
+  }
+
+  button[type='submit'] {
+    margin-top: 1.5rem;
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+.form-group.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem; /* space between buttons */
+}
+
+.btn-danger{
+    background-color: red ;
+}
+
+.textarea{
+    background-color: #8080802e !important;
+}
+
+.question-image-container {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  background: none;
+  width: fit-content;
+  height: fit-content;
+  font-size: 24px; /* Adjust as needed */
+  line-height: 1.2;
+  white-space: nowrap; /* Optional: prevents text wrapping */
+}
