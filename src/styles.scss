@@ -2,3 +2,38 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.para{ margin-left: 10%;
+    color: #6057575c;}
+
+    
+.options button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease;
+  text-align: left;
+}
+/* Define Dark Theme Styles  */
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+.dark-theme {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.dark-theme .para , .dark-theme .question-text, .dark-theme .mat-mdc-header-row , .dark-theme .mat-mdc-cell, .dark-theme .mat-mdc-paginator .mat-mdc-select, .dark-theme .difficulty-section p, .dark-theme select, .dark-theme .navbar-brand{color: #ffffffc0 !important ;}
+.dark-theme .options button, .dark-theme .btn-outline-dark{ color: #fff; background-color: #00000047  !important;}
+.dark-theme .card, .dark-theme .bg-light {background-color: #504f4fa8 !important;}
+.dark-theme .mat-mdc-paginator , .dark-theme .navbar-expand-lg .navbar-nav .nav-link{background-color: transparent; color: #ffffffc0;}
+.dark-theme .form{background-color: rgba(128, 128, 128, 0.1803921569) !important;}

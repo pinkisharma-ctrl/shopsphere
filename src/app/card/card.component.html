@@ -1,11 +1,7 @@
 <br>
 <br>
 
-<p style="
-    margin-left: 10%;
-    color: #6057575c;">{{ questionData?.category }} > {{ questionData?.subcategory }}</p>
-
-
+<p class="para" >{{ questionData?.category }} > {{ questionData?.subcategory }}</p>
 <div class="card">
   <div class="question-text" style="height: auto;"> {{ questionData?.question }} </div>
   <div (click)="addToFav(questionData)" class="fav">
@@ -20,7 +16,6 @@
       {{ option }}
     </button>
   </div>
-
 </div>
 
 <!-- Pagination Controls -->

@@ -1,11 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
-  <a class="navbar-brand" href="#">
-    <!--https://cdn-icons-png.freepik.com/256/3849/3849410.png?semt=ais_hybrid
-    https://cdn-icons-png.freepik.com/256/6124/6124066.png
-    -->
-    <img src="https://play-lh.googleusercontent.com/RZGUOE64sXvT1jcLiwyIoNysvRbnteGGg9UQHdyiVnWKmro5MOB1m6zy8TeRpMksFc4" 
-    alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-  </a> 
+  <a class="navbar-brand" href="#" style="    font-family: cursive;
+    font-weight: 600;
+    cursor: pointer;
+"> Flashcard</a> 
 
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
     <span class="navbar-toggler-icon"></span>
@@ -17,10 +14,16 @@
         <a class="nav-link active" href="#">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="createForm()">Create </a>
+        <a class="nav-link" (click)="createForm()">Create</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  (click)="goToFavourite()">Favourite</a>
+        <a class="nav-link" (click)="goToFavourite()">Favourite</a>
+      </li>
+      <!-- Night Mode Toggle Button -->
+      <li class="nav-item d-flex align-items-center ms-3">
+        <button class="btn btn-sm btn-outline-dark" (click)="toggleTheme()">
+          {{ isDarkMode ? 'Light Mode' : 'Night Mode' }}
+        </button>
       </li>
     </ul>
   </div>
